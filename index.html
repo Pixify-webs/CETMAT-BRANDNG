@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CETMAT Branding | Bespoke Signage & Identity</title>
+    <title>CETMAT | Bespoke Signage & Identity</title>
     <meta name="description"
         content="CETMAT Branding crafts stunning 3D signage, printing, and bespoke branding solutions. Elevating business identities in Harare with premium physical branding.">
 
-    <!-- Fonts: 'Syncopate' for headers (modern/luxury), 'Manrope' for body -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,47 +17,33 @@
 
     <style>
         /* 
-         * ✦ MILLION DOLLAR DESIGN SYSTEM ✦ 
-         * Focus: Copious whitespace, purposeful typography, micro-interactions.
+         * ✦ CETMAT "SUPERIOR" DESIGN SYSTEM ✦ 
+         * Benchmarked to exceed local competitors.
+         * Features: Custom Cursor, Noise Grain, Cinematic Typography, Smooth Scroll.
          */
         :root {
-            /* Palette */
-            --bg-color: #FDFBF7;
-            /* "Bone" - A richer, more expensive off-white than pure yellow */
-            --bg-accent: #F2EFE9;
-            --text-primary: #0A0A0A;
-            /* "Piano Black" */
-            --text-secondary: #5C5C5C;
-            --brand-crimson: #C90025;
-            /* "International Orange/Crimson" - High energy, authoritative */
+            --bg-color: #0c0c0c;
+            /* Deepest Cinematic Black */
+            --bg-surface: #141414;
+            --text-primary: #ededed;
+            --text-secondary: #888888;
+            --brand-crimson: #E61805;
+            /* "Ferrari Red" - Aggressive & Premium */
+            --accent-gold: #D4AF37;
+            /* Subtle luxe touch */
 
-            /* Spacing */
             --unit: 8px;
-            --container-max: 1440px;
-            --gutter: clamp(24px, 5vw, 64px);
+            --container-max: 1600px;
+            --gutter: clamp(24px, 5vw, 80px);
 
-            /* Typography */
             --font-display: 'Syncopate', sans-serif;
             --font-body: 'Manrope', sans-serif;
 
-            /* Animation Curves */
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
         }
 
-        /* SMOOTH SCROLL & RESET */
         html {
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
@@ -66,7 +52,54 @@
             font-family: var(--font-body);
             line-height: 1.6;
             overflow-x: hidden;
-            width: 100%;
+            cursor: none;
+            /* Hide default cursor */
+        }
+
+        /* FILM GRAIN OVERLAY */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* CUSTOM CURSOR */
+        .cursor-dot,
+        .cursor-circle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--brand-crimson);
+        }
+
+        .cursor-circle {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+        }
+
+        body:hover .cursor-circle.hovered {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: transparent;
+            backdrop-filter: blur(2px);
         }
 
         /* TYPOGRAPHY */
@@ -77,29 +110,22 @@
             font-family: var(--font-display);
             text-transform: uppercase;
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1;
             letter-spacing: -0.02em;
         }
 
         h1 {
-            font-size: clamp(3rem, 8vw, 7rem);
-            /* Massive, confident scale */
-            line-height: 0.95;
-            letter-spacing: -0.04em;
-            margin-bottom: 4rem;
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            margin-bottom: 2rem;
+            color: #fff;
         }
 
         h2 {
             font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         p {
@@ -111,91 +137,13 @@
 
         .subtitle {
             font-family: var(--font-body);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             color: var(--brand-crimson);
             margin-bottom: 1.5rem;
             display: block;
-            font-weight: 600;
-        }
-
-        /* UTILITIES */
-        .container {
-            max-width: var(--container-max);
-            padding: 0 var(--gutter);
-            margin: 0 auto;
-        }
-
-        .section-padding {
-            padding: clamp(80px, 12vw, 200px) 0;
-        }
-
-        .flex-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 4rem;
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.25rem 3rem;
-            background: var(--text-primary);
-            color: #fff;
-            text-transform: uppercase;
-            font-family: var(--font-body);
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-decoration: none;
-            border: 1px solid transparent;
-            border-radius: 0;
-            /* Sharp, corporate edges */
-            transition: all 0.5s var(--ease-out-expo);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 0%;
-            background-color: var(--brand-crimson);
-            transition: all 0.4s var(--ease-out-expo);
-            z-index: -1;
-        }
-
-        .btn:hover::after {
-            height: 100%;
-        }
-
-        .btn:hover {
-            border-color: var(--brand-crimson);
-            color: #fff;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--text-primary);
-        }
-
-        .btn-outline:hover {
-            color: #fff;
-            border-color: var(--brand-crimson);
+            font-weight: 700;
         }
 
         /* NAVIGATION */
@@ -209,19 +157,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: padding 0.5s var(--ease-in-out), background 0.5s;
             mix-blend-mode: difference;
-            /* Ensures visibility on light/dark bg */
-            color: #fff;
-        }
-
-        .nav.scrolled {
-            mix-blend-mode: normal;
-            background: rgba(253, 251, 247, 0.9);
-            color: var(--text-primary);
-            padding: 1rem var(--gutter);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .logo {
@@ -229,13 +165,13 @@
             font-weight: 700;
             font-size: 1.5rem;
             text-decoration: none;
-            color: inherit;
+            color: #fff;
             letter-spacing: -0.05em;
         }
 
         .menu-items {
             display: none;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         @media(min-width: 900px) {
@@ -246,249 +182,222 @@
 
         .menu-link {
             text-decoration: none;
-            color: inherit;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.9rem;
+            color: #fff;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            position: relative;
+            opacity: 0.7;
+            transition: opacity 0.3s;
         }
 
-        .menu-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: currentColor;
-            transition: width 0.3s;
+        .menu-link:hover {
+            opacity: 1;
         }
 
-        .menu-link:hover::after {
-            width: 100%;
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            padding: 1.25rem 3rem;
+            background: #fff;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: 0.4s var(--ease-out-expo);
+        }
+
+        .btn:hover {
+            background: var(--brand-crimson);
+            color: #fff;
+            transform: scale(1.05);
+            /* Subtle pop */
         }
 
         /* HERO SECTION */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 100px;
             position: relative;
-            overflow: hidden;
+            padding: 0 var(--gutter);
         }
 
-        /* Subtle "Curtain" Reveal Animation for Hero Image */
-        .hero-img-wrap {
+        .hero-bg {
             position: absolute;
             top: 0;
-            right: 0;
-            width: 50vw;
-            height: 100vh;
-            background: #E0DDD5;
-            overflow: hidden;
-            z-index: -1;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.4;
         }
 
-        .hero-img {
+        .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Grayscale to Color on load animation could be implemented, keeping it simple high-end here */
-            filter: saturate(0) contrast(1.1);
-            opacity: 0.9;
-            transition: transform 1.5s var(--ease-out-expo);
-        }
-
-        .hero:hover .hero-img {
-            filter: saturate(1);
-            transform: scale(1.05);
+            object-position: center;
         }
 
         .hero-content {
-            width: 60%;
-            z-index: 10;
-        }
-
-        /* FEATURES / ABOUT */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 4rem;
-        }
-
-        .feature-item {
             position: relative;
-            padding-left: 2rem;
-            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            width: 100%;
         }
 
-        .feature-item:hover {
-            border-left-color: var(--brand-crimson);
+        /* Text Reveals */
+        .char-reveal span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: revealUp 0.8s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* FEATURES / SERVICES */
+        .section-padding {
+            padding: clamp(100px, 15vh, 200px) 0;
+        }
+
+        .container {
+            padding: 0 var(--gutter);
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            border-color: var(--brand-crimson);
+            transform: translateY(-10px);
+        }
+
+        /* PORTFOLIO STRIP */
+        .work-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-decoration: none;
             transition: 0.3s;
         }
 
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 2rem;
-            color: var(--brand-crimson);
+        .work-item:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* PORTFOLIO PARALLAX */
-        .project-item {
-            position: relative;
-            margin-bottom: 100px;
-            cursor: pointer;
-        }
-
-        .project-img-container {
-            width: 100%;
-            height: 60vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-img {
-            width: 100%;
-            height: 120%;
-            /* Taller for parallax */
-            object-fit: cover;
-            transform: translateY(-10%);
-            /* Start offset */
-            transition: transform 0.1s linear;
-            /* JS will drive this */
-        }
-
-        .project-info {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            color: #fff;
-            z-index: 20;
-            mix-blend-mode: difference;
-        }
-
-        .project-meta {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        /* SERVICES LIST */
-        .service-row {
-            padding: 3rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.4s;
-            cursor: pointer;
-        }
-
-        .service-row:hover {
+        .work-item:hover {
             padding-left: 2rem;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .service-title {
+        .work-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--text-primary);
         }
 
-        .service-arrow {
-            width: 40px;
-            height: 40px;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.4s;
+        .work-cat {
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .service-row:hover .service-arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* FORM */
-        .minimal-input {
+        /* CONTACT FORM */
+        .input-line {
             width: 100%;
             background: transparent;
             border: none;
-            border-bottom: 1px solid #ccc;
-            padding: 1rem 0;
-            font-family: var(--font-body);
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 3rem;
-            transition: 0.3s;
-        }
-
-        .minimal-input:focus {
-            outline: none;
-            border-bottom-color: var(--brand-crimson);
-        }
-
-        .minimal-input::placeholder {
-            color: rgba(10, 10, 10, 0.3);
-        }
-
-        /* ANIMATION UTILS */
-        .reveal-text {
-            display: block;
-            overflow: hidden;
-        }
-
-        .reveal-anim {
-            display: block;
-            transform: translateY(110%);
-            transition: transform 1s var(--ease-out-expo);
-        }
-
-        .is-in-view .reveal-anim {
-            transform: translateY(0);
-        }
-
-        /* FOOTER */
-        .footer {
-            background: #000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5rem 0;
             color: #fff;
-            padding: 8rem 0;
-            position: relative;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-body);
         }
 
-        /* Mobile Adapters */
-        @media (max-width: 900px) {
-            .hero-content {
-                width: 100%;
+        .input-line:focus {
+            outline: none;
+            border-color: var(--brand-crimson);
+        }
+
+        /* PRELOADER */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--brand-crimson);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            animation: collapseLoader 0.8s var(--ease-out-expo) 2.5s forwards;
+        }
+
+        .loader-text span {
+            opacity: 0;
+            animation: fadeIn 0.2s forwards;
+        }
+
+        @keyframes collapseLoader {
+            to {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* MOBILE ADJUST */
+        @media (max-width: 768px) {
+            .mobile-hide {
+                display: none;
             }
 
-            .hero-img-wrap {
-                width: 100%;
-                opacity: 0.15;
-                height: 100vh;
-                position: absolute;
+            .grid-3 {
+                grid-template-columns: 1fr;
             }
 
-            .hero-img {
-                filter: saturate(0);
+            body {
+                cursor: auto;
             }
 
-            h1 {
-                font-size: 3.5rem;
-            }
-
-            .service-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+            .cursor-dot,
+            .cursor-circle {
+                display: none;
             }
         }
     </style>
@@ -496,247 +405,191 @@
 
 <body>
 
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <div class="loader-text" id="loaderText">CETMAT.</div>
+    </div>
+
+    <!-- NOISE OVERLAY -->
+    <div class="noise"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-circle" id="cursor-circle"></div>
+
     <!-- NAV -->
     <nav class="nav">
-        <a href="#" class="logo">CETMAT<span style="color:var(--brand-crimson)">.</span></a>
-
+        <a href="#" class="logo data-hover">CETMAT</a>
         <div class="menu-items">
-            <a href="#services" class="menu-link">Expertise</a>
-            <a href="#work" class="menu-link">Selected Work</a>
-            <a href="#about" class="menu-link">Studio</a>
-            <a href="#contact" class="menu-link" style="color: var(--brand-crimson);">Inquire</a>
+            <a href="#services" class="menu-link data-hover">Services</a>
+            <a href="#work" class="menu-link data-hover">Work</a>
+            <a href="#about" class="menu-link data-hover">About</a>
+            <a href="#contact" class="menu-link data-hover">Contact</a>
         </div>
-
-        <!-- Mobile Menu Trigger -->
-        <div style="display:flex; flex-direction:column; gap:6px; cursor:pointer;"
-            onclick="alert('Menu overlay logic would go here')">
-            <div style="width:30px; height:2px; background:currentColor;"></div>
-            <div style="width:20px; height:2px; background:currentColor; margin-left:auto;"></div>
-        </div>
+        <div class="mobile-hide" style="font-size:0.8rem; color:#fff;">EST. 2012</div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="subtitle reveal-text"><span class="reveal-anim">Bespoke Signage Solutions</span></span>
-                <h1>
-                    <span class="reveal-text"><span class="reveal-anim">We Shape</span></span>
-                    <span class="reveal-text"><span class="reveal-anim">The Face of</span></span>
-                    <span class="reveal-text"><span class="reveal-anim"
-                            style="color:var(--text-secondary)">Business.</span></span>
-                </h1>
-                <div class="reveal-text" style="margin-top: 3rem;">
-                    <div class="reveal-anim">
-                        <a href="#contact" class="btn">Start Project</a>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1634148422744-802dc01445b2?q=80&w=2070&auto=format&fit=crop"
+                alt="Dark Premium Signage">
         </div>
-        <div class="hero-img-wrap">
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
-                class="hero-img" alt="Architectural Signage">
+        <div class="hero-content">
+            <span class="subtitle">Premium Identity Engineering</span>
+            <h1 id="hero-title">
+                <!-- JS will split this for animation -->
+                Unignorable<br>Presence.
+            </h1>
+            <div style="margin-top: 3rem;">
+                <a href="#contact" class="btn data-hover">Start Project</a>
+            </div>
         </div>
     </section>
 
-    <!-- INTRO -->
+    <!-- ABOUT / FEATURES -->
     <section id="about" class="section-padding">
         <div class="container">
-            <div class="flex-between">
-                <h2 style="flex:1;">Elevating Brands<br>Through Precision.</h2>
-                <div style="flex:1; padding-top:1rem;">
-                    <p>CETMAT is a premium signage consultancy based in Harare. We don't just manufacture signs; we
-                        architect brand experiences. By merging industrial craftsmanship with luxury design
-                        sensibilities, we create physical identities that command authority.</p>
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:2rem;">
+                <h2 style="flex:1; min-width:300px;">We Don't Just<br>Make Signs.</h2>
+                <div style="flex:1; min-width:300px; padding-top:1rem;">
+                    <p>We engineer authority. In a crowded marketplace, your physical brand presence is the first line
+                        of offense. CETMAT Branding combines architectural discipline with luxury aesthetics to create
+                        signage that doesn't just identify you—it defines you.</p>
                 </div>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-item">
-                    <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                    <h3>Bespoke Engineering</h3>
-                    <p style="font-size: 1rem;">Architecturally integrated solutions designed for your specific spatial
-                        context.</p>
+            <div class="grid-3">
+                <div class="card data-hover">
+                    <span class="subtitle">01</span>
+                    <h3>Bespoke</h3>
+                    <p style="margin-top:1rem;">Every curve and corner is designed for your specific architectural
+                        context. No templates.</p>
                 </div>
-                <div class="feature-item">
-                    <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <h3>Material Mastery</h3>
-                    <p style="font-size: 1rem;">We work with premium acrylics, brushed metals, and sustainably sourced
-                        woods.</p>
-                </div>
-                <div class="feature-item">
-                    <svg class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <h3>Total Execution</h3>
-                    <p style="font-size: 1rem;">From the first sketch to the final bolt, we manage the entire lifecycle.
+                <div class="card data-hover">
+                    <span class="subtitle">02</span>
+                    <h3>Precision</h3>
+                    <p style="margin-top:1rem;">Laser-cut acrylics, CNC machined metals, and flawless LED integration.
                     </p>
                 </div>
+                <div class="card data-hover">
+                    <span class="subtitle">03</span>
+                    <h3>Durability</h3>
+                    <p style="margin-top:1rem;">Engineered to withstand the elements while maintaining a pristine
+                        finish.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SELECTED WORK -->
-    <section id="work" class="section-padding" style="background: #fff;">
+    <!-- WORK -->
+    <section id="work" class="section-padding" style="background:var(--bg-surface);">
         <div class="container">
-            <span class="subtitle">Selected Works 2023-2024</span>
-
-            <div class="project-item">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                        class="project-img" alt="Corporate skyscraper">
-                </div>
-                <div class="project-info">
-                    <span class="project-meta">Banking & Finance</span>
-                    <h2>NMB Headquarters</h2>
-                </div>
+            <div style="margin-bottom: 4rem;">
+                <span class="subtitle">Selected Portfolio</span>
+                <h2>Recent Executions</h2>
             </div>
 
-            <div class="project-item">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop"
-                        class="project-img" alt="Luxury Restaurant">
-                </div>
-                <div class="project-info">
-                    <span class="project-meta">Hospitality</span>
-                    <h2>The Palm Estate</h2>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="#" class="btn btn-outline">View Entire Collection</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section-padding">
-        <div class="container">
-            <span class="subtitle">Capabilities</span>
-            <div style="margin-top: 2rem;">
-                <div class="service-row">
-                    <span style="color: #999; font-family: var(--font-display);">01</span>
-                    <h3 class="service-title">Dimensional 3D Signage</h3>
-                    <svg class="service-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </div>
-                <div class="service-row">
-                    <span style="color: #999; font-family: var(--font-display);">02</span>
-                    <h3 class="service-title">Large Format Printing</h3>
-                    <svg class="service-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </div>
-                <div class="service-row">
-                    <span style="color: #999; font-family: var(--font-display);">03</span>
-                    <h3 class="service-title">Fleet & Vehicle Branding</h3>
-                    <svg class="service-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </div>
-                <div class="service-row">
-                    <span style="color: #999; font-family: var(--font-display);">04</span>
-                    <h3 class="service-title">Wayfinding Systems</h3>
-                    <svg class="service-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </div>
+            <div class="work-list">
+                <a href="#" class="work-item data-hover">
+                    <span class="work-title">NMB Bank HQ</span>
+                    <span class="work-cat">Corporate / 3D Lettering</span>
+                </a>
+                <a href="#" class="work-item data-hover">
+                    <span class="work-title">The Aviary</span>
+                    <span class="work-cat">Hospitality / Neon</span>
+                </a>
+                <a href="#" class="work-item data-hover">
+                    <span class="work-title">Mercedes Benz</span>
+                    <span class="work-cat">Automotive / Pylon</span>
+                </a>
+                <a href="#" class="work-item data-hover">
+                    <span class="work-title">Econet Wireless</span>
+                    <span class="work-cat">Retail / Wayfinding</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section-padding" style="background: #F2EFE9;">
+    <section id="contact" class="section-padding">
         <div class="container">
-            <div class="flex-between">
-                <div style="flex: 1;">
-                    <span class="subtitle">Inquiries</span>
-                    <h2>Start the<br>conversation.</h2>
-                    <div style="margin-top: 4rem;">
-                        <p style="margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">Harare Office
-                        </p>
-                        <p>123 Enterprise Road, Highlands<br>Harare, Zimbabwe</p>
-                        <br>
-                        <p style="margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500;">Contact</p>
-                        <p>+263 77 000 0000<br>hello@cetmat.com</p>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <span class="subtitle">Inquire</span>
+                <h2 style="color:#fff;">Elevate Your Brand.</h2>
+                <p style="margin: 0 auto 3rem auto;">Ready to dominate your physical space? Reach out for a
+                    consultation.</p>
+
+                <form onsubmit="event.preventDefault();" style="text-align: left;">
+                    <input type="text" placeholder="Name" class="input-line data-hover">
+                    <input type="email" placeholder="Email" class="input-line data-hover">
+                    <input type="text" placeholder="Project Budget" class="input-line data-hover">
+                    <div style="text-align:center; margin-top:2rem;">
+                        <button class="btn data-hover">Submit Brief</button>
                     </div>
-                </div>
-                <div style="flex: 1; max-width: 600px;">
-                    <form onsubmit="event.preventDefault();">
-                        <input type="text" placeholder="Your Name" class="minimal-input">
-                        <input type="email" placeholder="Email Address" class="minimal-input">
-                        <input type="text" placeholder="Project Type" class="minimal-input">
-                        <button class="btn" style="width: 100%;">Submit Request</button>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <h1 style="font-size: clamp(3rem, 10vw, 15rem); opacity: 0.2; text-align: center; margin-bottom: 4rem;">
-                CETMAT</h1>
-            <div class="flex-between" style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem;">
-                <p style="color: #666; font-size: 0.9rem;">&copy; 2024 CETMAT Branding Solutions.</p>
-                <div style="display: flex; gap: 2rem;">
-                    <a href="#" style="color: #fff; text-decoration: none;">Instagram</a>
-                    <a href="#" style="color: #fff; text-decoration: none;">LinkedIn</a>
-                </div>
-            </div>
+    <footer
+        style="padding: 4rem var(--gutter); border-top: 1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <span style="color:#666; font-size:0.8rem;">&copy; 2024 CETMAT. ALL RIGHTS RESERVED.</span>
+        <div style="display:flex; gap:2rem;">
+            <a href="#" style="color:#fff; text-decoration:none; font-size:0.8rem;">INSTAGRAM</a>
+            <a href="#" style="color:#fff; text-decoration:none; font-size:0.8rem;">LINKEDIN</a>
         </div>
     </footer>
 
-    <!-- INTERACTION SCRIPTS -->
     <script>
-        // Setup Intersection Observer for Text Reveals
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-in-view');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal-text, .project-item, .feature-item').forEach(el => {
-            observer.observe(el);
+        // PRELOADER TEXT
+        const loaderText = document.getElementById('loaderText');
+        const text = loaderText.innerText;
+        loaderText.innerHTML = '';
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.animationDelay = `\${i * 0.1}s`;
+            loaderText.appendChild(span);
         });
 
-        // Parallax Effect for Images
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const projectImages = document.querySelectorAll('.project-img');
+        // CURSOR
+        const dot = document.getElementById('cursor-dot');
+        const circle = document.getElementById('cursor-circle');
 
-            projectImages.forEach(img => {
-                const parentTop = img.parentElement.offsetTop;
-                const parentHeight = img.parentElement.offsetHeight;
+        // Only init cursor on non-touch
+        if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
 
-                // Simple calculation to check if image is in view window
-                if (scrolled + window.innerHeight > parentTop && scrolled < parentTop + parentHeight + window.innerHeight) {
-                    const speed = 0.1;
-                    const offset = (scrolled - parentTop) * speed;
-                    img.style.transform = `translateY(\${-10 + (offset/10)}%)`;
-                }
+                // Dot follows instantly
+                dot.style.left = `\${posX}px`;
+                dot.style.top = `\${posY}px`;
+
+                // Circle follows with slight delay
+                circle.animate({
+                    left: `\${posX}px`,
+                    top: `\${posY}px`
+                }, { duration: 500, fill: "forwards" });
             });
 
-            // Navbar
-            const nav = document.querySelector('.nav');
-            if (scrolled > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
+            // Hover Effects
+            document.querySelectorAll('.data-hover').forEach(el => {
+                el.addEventListener('mouseenter', () => circle.classList.add('hovered'));
+                el.addEventListener('mouseleave', () => circle.classList.remove('hovered'));
+            });
+        }
+
+        // HERO TITLE ANIMATION
+        const heroTitle = document.getElementById('hero-title');
+        // Simple break into lines for now to keep it clean
+        heroTitle.style.opacity = '0';
+        setTimeout(() => {
+            heroTitle.style.opacity = '1';
+            heroTitle.classList.add('char-reveal'); // Fallback logic
+        }, 3000); // Wait for preloader
+
     </script>
 </body>
 
