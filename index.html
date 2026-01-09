@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CETMAT Branding | Premium 3D Signage Solutions Zimbabwe</title>
+    <meta name="description" content="CETMAT Branding: Crafting stunning 3D signage, luxury branding, and premium installation services in Harare, Zimbabwe. Elevate your brand today.">
+    <meta name="keywords" content="3D signage Zimbabwe, bespoke signage Harare, luxury branding Zimbabwe, premium signage solutions, CETMAT">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        farmhouse: '#ECF0FF',  /* 60% Dominant */
+                        neutral: '#F8F9FA',    /* 20% Neutral */
+                        magenta: '#EC198E',    /* 10% Primary */
+                        skyblue: '#31AEDD',    /* 10% Secondary */
+                        charcoal: '#121212',   /* Text */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-overlay': 'linear-gradient(to bottom, rgba(18,18,18,0.3) 0%, rgba(18,18,18,0.8) 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --farmhouse-white: #ECF0FF;
+            --neutral:         #F8F9FA;
+            --magenta:         #EC198E;
+            --sky-blue:        #31AEDD;
+            --charcoal:        #121212;
+        }
+
+        body {
+            background-color: var(--farmhouse-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--farmhouse-white);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--magenta);
+        }
+
+        /* Video Background Handling */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-container video {
+            min-width: 100%; 
+            min-height: 100%; 
+            width: auto; 
+            height: auto; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%,-50%);
+            object-fit: cover;
+        }
+
+        /* Mobile Menu Transition */
+        .mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Carousel Snap */
+        .snap-x-mandatory {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-center {
+            scroll-snap-align: center;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-magenta selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-bold text-white tracking-wider z-50">
+                CETMAT<span class="text-magenta">.</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-white hover:text-skyblue transition-colors text-sm font-medium tracking-wide">WHO WE ARE</a>
+                <a href="#services" class="text-white hover:text-skyblue transition-colors text-sm font-medium tracking-wide">SERVICES</a>
+                <a href="#portfolio" class="text-white hover:text-skyblue transition-colors text-sm font-medium tracking-wide">OUR WORK</a>
+                <a href="#contact" class="px-6 py-2 bg-magenta text-white text-sm font-bold rounded-sm hover:bg-white hover:text-magenta transition-all duration-300 shadow-lg hover:shadow-magenta/50">
+                    GET QUOTE
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden z-50 text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-charcoal/95 h-screen w-full transform translate-x-full flex flex-col justify-center items-center space-y-8 z-40">
+            <a href="#about" class="mobile-link text-2xl text-farmhouse font-heading hover:text-magenta">Who We Are</a>
+            <a href="#services" class="mobile-link text-2xl text-farmhouse font-heading hover:text-magenta">Services</a>
+            <a href="#portfolio" class="mobile-link text-2xl text-farmhouse font-heading hover:text-magenta">Our Work</a>
+            <a href="#contact" class="text-2xl text-magenta font-heading font-bold">Get a Quote</a>
+        </div>
+    </nav>
+
+    <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <div class="video-container">
+            <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1565514020128-2c268a7312f2?q=80&w=2070&auto=format&fit=crop">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-metal-welding-sparks-close-up-1650-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center md:text-left pt-20">
+            <div class="max-w-4xl">
+                <h1 class="gsap-hero-text text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-6">
+                    Crafting Stunning <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-farmhouse to-neutral">3D Signage</span> That <br>
+                    Elevates Your Brand
+                </h1>
+                <p class="gsap-hero-text text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light">
+                    We design, manufacture, and install bespoke signs that exceed expectations with elegance and sophistication. The premier choice for Zimbabwe's top brands.
+                </p>
+                <div class="gsap-hero-text flex flex-col md:flex-row gap-4">
+                    <a href="#contact" class="px-8 py-4 bg-magenta text-white font-bold rounded shadow-lg shadow-magenta/30 hover:scale-105 transition-transform duration-300 text-center uppercase tracking-widest">
+                        Elevate Your Brand
+                    </a>
+                    <a href="#portfolio" class="px-8 py-4 bg-skyblue text-white font-bold rounded shadow-lg shadow-skyblue/30 hover:bg-white hover:text-skyblue transition-all duration-300 text-center uppercase tracking-widest">
+                        View Our Work
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 bg-farmhouse relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="gsap-fade-right">
+                    <h4 class="text-skyblue font-bold uppercase tracking-widest mb-2">Who We Are</h4>
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-charcoal mb-6 leading-tight">
+                        Precision Engineering Meets <span class="text-magenta">Artistic Vision.</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        At CETMAT Branding, we specialize in crafting stunning 3D signage, printing, and branding solutions that add elegance and sophistication to any space. Our team of experts design, manufacture, and install bespoke signs that exceed our clients' expectations.
+                    </p>
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        With years of experience in the signage industry, we take pride in delivering top-notch products and services that meet our clients' unique needs and timelines.
+                    </p>
+                    
+                    <div class="border-t border-gray-200 pt-8">
+                        <p class="text-xs text-gray-400 uppercase tracking-widest mb-4">Trusted by Industry Leaders</p>
+                        <div class="flex flex-wrap gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                            <div class="font-heading font-bold text-xl">NMB BANK</div>
+                            <div class="font-heading font-bold text-xl">ECONET</div>
+                            <div class="font-heading font-bold text-xl">OLD MUTUAL</div>
+                            <div class="font-heading font-bold text-xl">SEEDCO</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative gsap-fade-left">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-skyblue/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-magenta/20 rounded-full blur-2xl"></div>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" 
+                         alt="CETMAT Team Working" 
+                         class="relative rounded-lg shadow-2xl z-10 w-full object-cover h-[500px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h4 class="text-magenta font-bold uppercase tracking-widest mb-2">Our Expertise</h4>
+                <h2 class="text-4xl font-heading font-bold text-charcoal">Complete Branding Solutions</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card group bg-neutral p-8 rounded-lg border border-transparent hover:border-magenta hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-magenta text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">3D Signage Design</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Laser-cut precision and bespoke materials including acrylic, steel, and aluminum.</p>
+                    <a href="#" class="text-skyblue font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">Learn More <span class="ml-2">&rarr;</span></a>
+                </div>
+
+                <div class="service-card group bg-neutral p-8 rounded-lg border border-transparent hover:border-magenta hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-magenta text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Premium Printing</h3>
+                    <p class="text-gray-600 mb-6 text-sm">High-resolution large format printing for banners, vinyls, and wall wraps.</p>
+                    <a href="#" class="text-skyblue font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">Learn More <span class="ml-2">&rarr;</span></a>
+                </div>
+
+                <div class="service-card group bg-neutral p-8 rounded-lg border border-transparent hover:border-magenta hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-magenta text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Bespoke Branding</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Comprehensive corporate identity implementation across physical spaces.</p>
+                    <a href="#" class="text-skyblue font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">Learn More <span class="ml-2">&rarr;</span></a>
+                </div>
+
+                <div class="service-card group bg-neutral p-8 rounded-lg border border-transparent hover:border-magenta hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-magenta text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">LED & Illuminated</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Eye-catching fabricated lettering with halo, front-lit, or backlit LED illumination.</p>
+                    <a href="#" class="text-skyblue font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">Learn More <span class="ml-2">&rarr;</span></a>
+                </div>
+
+                <div class="service-card group bg-neutral p-8 rounded-lg border border-transparent hover:border-magenta hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-magenta text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Exhibitions</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Portable, high-impact displays for trade shows, events, and activations.</p>
+                    <a href="#" class="text-skyblue font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">Learn More <span class="ml-2">&rarr;</span></a>
+                </div>
+
+                <div class="service-card group bg-neutral p-8 rounded-lg border border-transparent hover:border-magenta hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-magenta text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Space Transformation</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Interior cladding, frosted glass, and architectural signage elements.</p>
+                    <a href="#" class="text-skyblue font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">Learn More <span class="ml-2">&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 bg-farmhouse">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h4 class="text-skyblue font-bold uppercase tracking-widest mb-2">Portfolio</h4>
+                    <h2 class="text-4xl font-heading font-bold text-charcoal">Recent Installations</h2>
+                </div>
+                <a href="#" class="hidden md:inline-block text-magenta font-semibold hover:text-charcoal transition-colors">View All Projects &rarr;</a>
+            </div>
+
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                <div class="portfolio-item break-inside-avoid relative group rounded-lg overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=2000&auto=format&fit=crop" alt="Neon Sign" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Boutique Hotel</h3>
+                        <p class="text-skyblue text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Illuminated Exterior Signage</p>
+                        <button class="bg-magenta text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-white hover:text-magenta transition-colors">View Project</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-item break-inside-avoid relative group rounded-lg overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1555447405-058428d6556a?q=80&w=2000&auto=format&fit=crop" alt="Corporate Wall" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Tech Hub Harare</h3>
+                        <p class="text-skyblue text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Interior 3D Branding</p>
+                        <button class="bg-magenta text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-white hover:text-magenta transition-colors">View Project</button>
+                    </div>
+                </div>
+
+                 <div class="portfolio-item break-inside-avoid relative group rounded-lg overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2000&auto=format&fit=crop" alt="Shop Front" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Retail Chain</h3>
+                        <p class="text-skyblue text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Lightbox Fabrication</p>
+                        <button class="bg-magenta text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-white hover:text-magenta transition-colors">View Project</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-item break-inside-avoid relative group rounded-lg overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2000&auto=format&fit=crop" alt="Reception Sign" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Law Chambers</h3>
+                        <p class="text-skyblue text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Brass & Acrylic</p>
+                        <button class="bg-magenta text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-white hover:text-magenta transition-colors">View Project</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-item break-inside-avoid relative group rounded-lg overflow-hidden cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1974&auto=format&fit=crop" alt="Exterior Pylon" class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="text-white text-xl font-bold mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Fuel Station</h3>
+                        <p class="text-skyblue text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Pylon Totem Manufacturing</p>
+                        <button class="bg-magenta text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-white hover:text-magenta transition-colors">View Project</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="inline-block text-magenta font-semibold hover:text-charcoal transition-colors">View All Projects &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="usp-card bg-neutral p-8 rounded-lg text-center hover:translate-y-[-10px] transition-transform duration-300">
+                    <div class="text-skyblue text-4xl mb-4 flex justify-center"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="font-bold text-lg mb-2">10+ Years Expertise</h3>
+                    <p class="text-sm text-gray-500">Unmatched experience in the Zimbabwean market.</p>
+                </div>
+                 <div class="usp-card bg-neutral p-8 rounded-lg text-center hover:translate-y-[-10px] transition-transform duration-300">
+                    <div class="text-magenta text-4xl mb-4 flex justify-center"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg></div>
+                    <h3 class="font-bold text-lg mb-2">Bespoke Elegance</h3>
+                    <p class="text-sm text-gray-500">Custom designs that radiate luxury and style.</p>
+                </div>
+                 <div class="usp-card bg-neutral p-8 rounded-lg text-center hover:translate-y-[-10px] transition-transform duration-300">
+                    <div class="text-skyblue text-4xl mb-4 flex justify-center"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="font-bold text-lg mb-2">On-Time Precision</h3>
+                    <p class="text-sm text-gray-500">We respect deadlines and deliver with accuracy.</p>
+                </div>
+                 <div class="usp-card bg-neutral p-8 rounded-lg text-center hover:translate-y-[-10px] transition-transform duration-300">
+                    <div class="text-magenta text-4xl mb-4 flex justify-center"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
+                    <h3 class="font-bold text-lg mb-2">Professional Install</h3>
+                    <p class="text-sm text-gray-500">Certified teams ensuring safety and finish quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-farmhouse">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-heading font-bold text-charcoal text-center mb-16">Client Success Stories</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-neutral p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-charcoal">Tendai M.</h4>
+                            <p class="text-xs text-skyblue uppercase">Marketing Director, RetailCo</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"CETMAT transformed our storefronts nationwide. Their attention to detail on the 3D lettering was impeccable. Truly premium service."</p>
+                </div>
+
+                <div class="bg-neutral p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-charcoal">Sarah Jenkins</h4>
+                            <p class="text-xs text-skyblue uppercase">Ops Manager, The Hive</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"We needed a complex reception sign with backlighting. CETMAT delivered ahead of schedule and the finish is absolutely farmhouse luxury style."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-gradient-to-b from-farmhouse to-neutral text-center">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-charcoal mb-6">Ready to Elevate Your Brand Image?</h2>
+            <p class="text-xl text-gray-600 mb-10">Let us help you elevate your brand image with our stunning signage solutions!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="mailto:info@cetmat.co.zw" class="px-10 py-5 bg-magenta text-white font-bold text-lg rounded shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    START YOUR PROJECT
+                </a>
+                <a href="tel:+263770000000" class="px-10 py-5 bg-transparent border-2 border-skyblue text-skyblue font-bold text-lg rounded hover:bg-skyblue hover:text-white transition-all duration-300">
+                    GET A QUOTE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-charcoal pt-20 pb-10 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="text-3xl font-heading font-bold tracking-wider mb-6 block">
+                        CETMAT<span class="text-magenta">.</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Zimbabwe's premier 3D signage and branding studio. Bringing elegance to your business identity.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-skyblue transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-skyblue transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-skyblue transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-skyblue transition-colors">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contact</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start"><span class="text-magenta mr-2">📍</span> Harare, Zimbabwe</li>
+                        <li class="flex items-start"><span class="text-magenta mr-2">📞</span> +263 77 123 4567</li>
+                        <li class="flex items-start"><span class="text-magenta mr-2">✉️</span> info@cetmat.co.zw</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-neutral/10 flex items-center justify-center hover:bg-magenta transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-neutral/10 flex items-center justify-center hover:bg-magenta transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.072 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 CETMAT Branding. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Designed for Luxury.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-charcoal/90', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('bg-charcoal/90', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Fade Up
+        gsap.from(".gsap-hero-text", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // About Section
+        gsap.from(".gsap-fade-right", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 80%"
+            },
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        gsap.from(".gsap-fade-left", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 80%"
+            },
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            delay: 0.2
+        });
+
+        // Services Stagger
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: "#services",
+                    start: "top 85%"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: "power2.out"
+            });
+        });
+
+        // Portfolio Fade In
+        gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 90%"
+                },
+                scale: 0.95,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // USP Cards Slide Up
+        gsap.utils.toArray('.usp-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: "back.out(1.7)"
+            });
+        });
+
+    </script>
+</body>
+</html>
