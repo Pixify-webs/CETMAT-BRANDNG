@@ -1,364 +1,1129 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CETMAT Branding | Luxury 3D Signage & Fabrication Zimbabwe</title>
-    <meta name="description" content="Crafting stunning 3D signage, printing, and branding solutions in Zimbabwe. We design, manufacture, and install bespoke signs that elevate your brand.">
-    <meta name="keywords" content="3D signage Zimbabwe, bespoke signage Harare, luxury branding Zimbabwe, premium signage solutions, laser cutting, CNC fabrication">
+    <meta name="description" content="CETMAT Branding - Premium 3D signage, printing, and branding solutions in Zimbabwe. We specialize in crafting stunning LED signs, vehicle wraps, and bespoke installations that elevate your brand.">
+    <meta name="keywords" content="3D signage Zimbabwe, LED signs Harare, vehicle wraps, acrylic signage, corporate branding, printing services Zimbabwe">
+    <meta name="author" content="CETMAT Branding">
     
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CETMAT Branding - Stunning 3D Signage Solutions in Zimbabwe">
+    <meta property="og:description" content="Premium 3D signage, printing, and branding solutions that add elegance and sophistication to any space.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cetmatbranding.co.zw">
+    <meta property="og:image" content="https://cetmatbranding.co.zw/images/og-image.jpg">
+    
+    <title>CETMAT Branding - Premium 3D Signage & Branding Solutions | Zimbabwe</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        farmhouse: '#ECF0FF', // 60% Dominant
-                        neutral: '#F8F9FA',   // 30% Neutral
-                        magenta: '#EC198E',   // 10% Primary
-                        charcoal: '#121212',  // Text
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'hero-overlay': 'linear-gradient(to bottom, rgba(18,18,18,0.3), rgba(18,18,18,0.9))',
-                    }
-                }
-            }
-        }
-    </script>
-
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* CSS Variables & Global Overrides */
-        :root {
-            --farmhouse-white: #ECF0FF;
-            --neutral: #F8F9FA;
-            --magenta: #EC198E;
-            --charcoal: #121212;
+        /* ==================== GLOBAL RESET & VARIABLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
+        
+        :root {
+            /* 60/30/10 Color Rule */
+            --cream: #f0eee9;        /* 60% - backgrounds, hero, whitespace */
+            --charcoal: #39393F;     /* 30% - text, headings, nav, icons */
+            --rose-pink: #DF4671;    /* 10% - buttons/CTAs, hover accents */
+            
+            /* Typography */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            /* Transitions */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            background-color: var(--farmhouse-white);
+            font-family: var(--font-body);
             color: var(--charcoal);
+            background-color: var(--cream);
+            line-height: 1.7;
             overflow-x: hidden;
         }
-
-        /* Video Hero Styles */
-        .hero-video-container {
+        
+        /* ==================== TYPOGRAPHY ==================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            background: rgba(240, 238, 233, 0.95);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(57, 57, 63, 0.1);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rose-pink);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--rose-pink);
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--charcoal);
+            transition: var(--transition-smooth);
+        }
+        
+        /* ==================== BUTTONS ==================== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--rose-pink);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(223, 70, 113, 0.3);
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(223, 70, 113, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--charcoal);
+            color: white;
+        }
+        
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream) 70%, rgba(223, 70, 113, 0.1) 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(223, 70, 113, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-logo {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            color: var(--charcoal);
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Floating 3D Signage Mockup (CSS) */
+        .hero-mockup {
+            margin-top: 4rem;
+            animation: floatMockup 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatMockup {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .signage-3d {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: var(--rose-pink);
+            text-shadow: 
+                0 1px 0 #c93d5f,
+                0 2px 0 #b83555,
+                0 3px 0 #a72d4b,
+                0 4px 0 #962541,
+                0 5px 0 #851d37,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            letter-spacing: 2px;
+        }
+        
+        /* ==================== SECTION LAYOUT ==================== */
+        section {
+            padding: 6rem 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--charcoal);
+            opacity: 0.8;
+        }
+        
+        /* ==================== SERVICES SECTION (GLASSMORPHISM) ==================== */
+        .services {
+            background-color: var(--cream);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            box-shadow: 0 8px 32px rgba(57, 57, 63, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(57, 57, 63, 0.15);
+            border-color: rgba(223, 70, 113, 0.3);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--rose-pink), #ff5a8a);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(223, 70, 113, 0.3);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 0;
+        }
+        
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--rose-pink);
+            font-weight: 700;
+        }
+        
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            background: linear-gradient(to bottom, var(--cream) 0%, rgba(223, 70, 113, 0.05) 100%);
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--rose-pink);
+            font-family: var(--font-heading);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+        }
+        
+        /* ==================== PORTFOLIO SECTION ==================== */
+        .portfolio {
+            background-color: var(--cream);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(57, 57, 63, 0.1);
+            transition: var(--transition-smooth);
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(57, 57, 63, 0.2);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(223, 70, 113, 0.9) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Placeholder for missing image */
+        .portfolio-placeholder {
+            background: linear-gradient(135deg, #e0deda 0%, #c8c6c1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonials {
+            background: linear-gradient(to bottom, var(--cream) 0%, rgba(223, 70, 113, 0.05) 100%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .testimonial-card {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(57, 57, 63, 0.15);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.125rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+        
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--rose-pink);
+            line-height: 0;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose-pink), #ff5a8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            font-size: 0.875rem;
+            opacity: 0.7;
+            margin-bottom: 0;
+        }
+        
+        /* ==================== CONTACT SECTION ==================== */
+        .contact {
+            background-color: var(--cream);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--rose-pink), #ff5a8a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .contact-text h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+        }
+        
+        .contact-text p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+        
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
+            padding: 1rem;
+            border: 2px solid rgba(57, 57, 63, 0.1);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition-smooth);
         }
-
-        .hero-video {
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-            /* Parallax hook */
-            will-change: transform; 
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--rose-pink);
+            background-color: white;
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
         }
-        ::-webkit-scrollbar-track {
-            background: var(--farmhouse-white);
+        
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 3rem 2rem 2rem;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 5px;
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--magenta);
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
         }
-
-        /* Utility: Hide scrollbar for carousel but keep functionality */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            line-height: 2;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        
+        .footer-section a:hover {
+            color: var(--rose-pink);
         }
-
-        /* Button Hover Effects */
-        .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(236, 25, 142, 0.4);
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--rose-pink);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        
+        /* Tablets and smaller (768px) */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(240, 238, 233, 0.98);
+                -webkit-backdrop-filter: blur(12px);
+                backdrop-filter: blur(12px);
+                width: 100%;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: var(--transition-smooth);
+                border-bottom: 1px solid rgba(57, 57, 63, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+        
+        /* Mobile (320px) */
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1rem 2rem;
+            }
+            
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.95rem;
+            }
+            
+            .service-card,
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .portfolio-grid {
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Large Desktop (1200px+) */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 cursor-pointer">
-                    <span class="font-heading font-bold text-2xl tracking-tighter text-white" id="nav-logo">
-                        CETMAT<span class="text-magenta">.</span>
-                    </span>
-                </div>
-                
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#about" class="font-medium text-sm text-neutral hover:text-magenta transition-colors">Who We Are</a>
-                        <a href="#services" class="font-medium text-sm text-neutral hover:text-magenta transition-colors">What We Do</a>
-                        <a href="#work" class="font-medium text-sm text-neutral hover:text-magenta transition-colors">Our Work</a>
-                        <a href="#contact" class="px-5 py-2.5 rounded-full bg-magenta text-white text-sm font-semibold hover:bg-white hover:text-magenta transition-all duration-300">Get Quote</a>
-                    </div>
-                </div>
-
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-magenta focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="md:hidden hidden bg-charcoal absolute w-full top-full left-0 border-t border-gray-800" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-neutral hover:text-magenta">Who We Are</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-neutral hover:text-magenta">What We Do</a>
-                <a href="#work" class="block px-3 py-2 rounded-md text-base font-medium text-neutral hover:text-magenta">Our Work</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-magenta font-bold">Get a Quote</a>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">CETMAT</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="hero-video-container">
-            <video class="hero-video" playsinline autoplay muted loop poster="https://images.unsplash.com/photo-1565514020176-db8409b06577?q=80&w=2070&auto=format&fit=crop">
-                <source src="https://v4.cdnpk.net/videvo_files/video/free/2019-03/large_watermarked/190214_11_Solder_07_preview.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="absolute inset-0 bg-hero-overlay"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <h1 class="hero-text font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 opacity-0 translate-y-10">
-                Crafting Stunning <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral">3D Signage</span> That <br>
-                Elevates Your Brand
-            </h1>
-            <p class="hero-text text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 opacity-0 translate-y-10">
-                We design, manufacture, and install bespoke signs that exceed expectations with elegance and sophistication.
-            </p>
-            <div class="hero-btn flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 translate-y-10">
-                <a href="#contact" class="btn-glow px-8 py-4 bg-magenta text-white font-semibold rounded-full transform transition hover:scale-105 duration-300 text-lg w-full sm:w-auto">
-                    ELEVATE YOUR BRAND
-                </a>
-                <a href="#work" class="px-8 py-4 bg-transparent border border-white text-white font-semibold rounded-full hover:bg-white hover:text-magenta transition-all duration-300 text-lg w-full sm:w-auto">
-                    VIEW OUR WORK
-                </a>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-logo">CETMAT Branding</div>
+            <h1>Stunning 3D Signage Solutions</h1>
+            <p>We specialize in crafting premium 3D signage, printing, and branding solutions that add elegance and sophistication to any space across Zimbabwe.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn">Elevate Your Brand</a>
+                <a href="#portfolio" class="btn btn-secondary">View Our Work</a>
+            </div>
+            <div class="hero-mockup">
+                <div class="signage-3d">CETMAT</div>
             </div>
         </div>
+    </section>
 
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
-    </header>
-
-    <section id="about" class="py-24 bg-farmhouse relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="gsap-fade-right">
-                    <h4 class="text-magenta font-bold tracking-widest text-sm mb-4 uppercase">Who We Are</h4>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
-                        Elegance & Precision in Every Detail.
-                    </h2>
-                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-                        At CETMAT Branding, we specialize in crafting stunning 3D signage, printing, and branding solutions that add elegance and sophistication to any space. Our team of experts design, manufacture, and install bespoke signs that exceed our clients' expectations.
-                    </p>
-                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
-                        With years of experience in the signage industry, we take pride in delivering top-notch products and services that meet our clients' unique needs and timelines.
-                    </p>
-                    
-                    <div class="mt-12">
-                        <p class="text-sm font-semibold text-charcoal mb-4 opacity-70">TRUSTED BY LEADING BRANDS</p>
-                        <div class="flex gap-6 overflow-hidden">
-                            <div class="flex gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                                <span class="text-2xl font-bold text-charcoal">NMB</span>
-                                <span class="text-2xl font-bold text-charcoal">ECONET</span>
-                                <span class="text-2xl font-bold text-charcoal">OLD MUTUAL</span>
-                                <span class="text-2xl font-bold text-charcoal">CBZ</span>
-                                <span class="text-2xl font-bold text-charcoal">STANBIC</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Premium solutions tailored to elevate your brand presence</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1: 3D Signage -->
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>3D Signage</h3>
+                    <p>Luxury three-dimensional signs that command attention and leave lasting impressions.</p>
+                    <ul>
+                        <li>Premium acrylic LED signs</li>
+                        <li>Channel letter installations</li>
+                        <li>Illuminated brand displays</li>
+                        <li>Custom dimensional lettering</li>
+                        <li>Corporate reception signage</li>
+                    </ul>
                 </div>
+                
+                <!-- Service 2: Premium Printing -->
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Premium Printing</h3>
+                    <p>High-quality printing solutions that bring your brand to life with vibrant colors and precision.</p>
+                    <ul>
+                        <li>Large format banners</li>
+                        <li>Vehicle wraps & graphics</li>
+                        <li>Window displays & decals</li>
+                        <li>Trade show materials</li>
+                        <li>Custom wallpaper murals</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3: Bespoke Branding -->
+                <div class="service-card">
+                    <div class="service-icon">🏆</div>
+                    <h3>Bespoke Branding</h3>
+                    <p>Custom installations designed to match your unique vision and brand identity perfectly.</p>
+                    <ul>
+                        <li>Custom brand installations</li>
+                        <li>Interior wayfinding systems</li>
+                        <li>Retail environment branding</li>
+                        <li>Office space identity</li>
+                        <li>End-to-end design services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="relative gsap-fade-left">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-magenta/10 rounded-full blur-3xl"></div>
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop" 
-                         alt="Luxury Signage Workshop" 
-                         class="rounded-lg shadow-2xl relative z-10 w-full h-[500px] object-cover hover:scale-[1.02] transition-transform duration-500">
-                    <div class="absolute -bottom-6 -left-6 bg-neutral p-6 rounded-lg shadow-xl z-20 max-w-xs border-l-4 border-magenta">
-                        <p class="text-charcoal font-bold text-lg">100% Bespoke</p>
-                        <p class="text-sm text-gray-500">Tailored to your architectural specifications.</p>
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About CETMAT Branding</h2>
+            </div>
+            
+            <div class="about-content">
+                <p>At CETMAT Branding, we specialize in crafting stunning 3D signage, printing, and branding solutions that add elegance and sophistication to any space. Our team of experts design, manufacture, and install bespoke signs that exceed our clients' expectations.</p>
+                
+                <p>With years of experience in the signage industry, we take pride in delivering top-notch products and services that meet our clients' unique needs and timelines. Let us help you elevate your brand image with our stunning signage solutions!</p>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 bg-farmhouse">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 gsap-fade-up">
-                <h4 class="text-magenta font-bold tracking-widest text-sm mb-2 uppercase">Our Expertise</h4>
-                <h2 class="font-heading text-4xl font-bold text-charcoal">Premium Branding Solutions</h2>
+    <!-- ==================== PORTFOLIO SECTION ==================== -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <p>A showcase of our premium signage and branding installations</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card group bg-neutral p-8 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-magenta cursor-pointer">
-                    <div class="w-14 h-14 bg-magenta/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-magenta transition-colors duration-300">
-                        <svg class="w-7 h-7 text-magenta group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0deda' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='20' fill='%2339393F'%3E3D Office Reception%3C/text%3E%3C/svg%3E" alt="CETMAT 3D signage installation Zimbabwe - office reception branding">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Reception Signage</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 font-heading">3D Signage Design</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Precision-cut lettering and shapes using advanced CNC and laser technology.</p>
-                    <a href="#contact" class="text-charcoal font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">
-                        Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
                 </div>
-
-                <div class="service-card group bg-neutral p-8 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-magenta cursor-pointer">
-                    <div class="w-14 h-14 bg-magenta/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-magenta transition-colors duration-300">
-                        <svg class="w-7 h-7 text-magenta group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0deda' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='20' fill='%2339393F'%3ERetal Storefront%3C/text%3E%3C/svg%3E" alt="Premium retail 3D LED signage Harare Zimbabwe">
+                    <div class="portfolio-overlay">
+                        <h3>Luxury Retail Signage</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 font-heading">LED & Illuminated</h3>
-                    <p class="text-gray-600 mb-6 text-sm">High-impact fabricated letters with backlit, front-lit, or halo illumination.</p>
-                    <a href="#contact" class="text-charcoal font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">
-                        Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
                 </div>
-
-                <div class="service-card group bg-neutral p-8 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-magenta cursor-pointer">
-                    <div class="w-14 h-14 bg-magenta/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-magenta transition-colors duration-300">
-                        <svg class="w-7 h-7 text-magenta group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0deda' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='20' fill='%2339393F'%3EVehicle Branding%3C/text%3E%3C/svg%3E" alt="Vehicle wrap branding services Zimbabwe CETMAT">
+                    <div class="portfolio-overlay">
+                        <h3>Vehicle Wrap & Graphics</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 font-heading">Premium Printing</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Large format printing, vinyl applications, and high-resolution visuals.</p>
-                    <a href="#contact" class="text-charcoal font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">
-                        Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
                 </div>
-
-                 <div class="service-card group bg-neutral p-8 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-magenta cursor-pointer">
-                    <div class="w-14 h-14 bg-magenta/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-magenta transition-colors duration-300">
-                        <svg class="w-7 h-7 text-magenta group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0deda' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='20' fill='%2339393F'%3EOutdoor LED Sign%3C/text%3E%3C/svg%3E" alt="Large outdoor 3D LED signage installation Zimbabwe">
+                    <div class="portfolio-overlay">
+                        <h3>Outdoor LED Installation</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 font-heading">Corporate Interiors</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Office branding, reception signs, and wall wraps that transform workspaces.</p>
-                    <a href="#contact" class="text-charcoal font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">
-                        Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
                 </div>
-
-                 <div class="service-card group bg-neutral p-8 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-magenta cursor-pointer">
-                    <div class="w-14 h-14 bg-magenta/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-magenta transition-colors duration-300">
-                        <svg class="w-7 h-7 text-magenta group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0deda' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='20' fill='%2339393F'%3EAcrylic Door Sign%3C/text%3E%3C/svg%3E" alt="Custom acrylic office door signage Zimbabwe">
+                    <div class="portfolio-overlay">
+                        <h3>Premium Door Signage</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 font-heading">Event Branding</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Exhibition stands, banners, and temporary signage for impactful events.</p>
-                    <a href="#contact" class="text-charcoal font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">
-                        Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
                 </div>
-
-                 <div class="service-card group bg-neutral p-8 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 border border-transparent hover:border-magenta cursor-pointer">
-                    <div class="w-14 h-14 bg-magenta/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-magenta transition-colors duration-300">
-                        <svg class="w-7 h-7 text-magenta group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0deda' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='20' fill='%2339393F'%3EPrinting Materials%3C/text%3E%3C/svg%3E" alt="Premium printing and banner services CETMAT Zimbabwe">
+                    <div class="portfolio-overlay">
+                        <h3>Print & Banner Solutions</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 font-heading">Custom Fabrication</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Unique structures and metalwork designed to fit specific architectural needs.</p>
-                    <a href="#contact" class="text-charcoal font-semibold text-sm group-hover:text-magenta transition-colors flex items-center">
-                        Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="work" class="py-24 bg-farmhouse">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12 gsap-fade-up">
-                <div>
-                    <h4 class="text-magenta font-bold tracking-widest text-sm mb-2 uppercase">Portfolio</h4>
-                    <h2 class="font-heading text-4xl font-bold text-charcoal">Featured Projects</h2>
-                </div>
-                <a href="#" class="hidden md:inline-block text-charcoal hover:text-magenta font-semibold border-b border-charcoal hover:border-magenta transition-colors pb-1">View All Projects</a>
+    <!-- ==================== TESTIMONIALS SECTION ==================== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by leading businesses across Zimbabwe</p>
             </div>
-
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                <div class="relative group overflow-hidden rounded-lg break-inside-avoid gsap-item">
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2070&auto=format&fit=crop" alt="Neon Sign" class="w-full h-auto transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                            <h3 class="text-white text-xl font-bold mb-1">Neon Cafe</h3>
-                            <p class="text-gray-300 text-sm mb-4">Illuminated Signage</p>
-                            <button class="px-5 py-2 bg-magenta text-white text-sm rounded-full font-semibold hover:bg-white hover:text-magenta transition">View Project</button>
-                        </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        CETMAT transformed our office reception with stunning 3D signage. The quality and attention to detail exceeded our expectations. Highly professional team!
                     </div>
-                </div>
-
-                <div class="relative group overflow-hidden rounded-lg break-inside-avoid gsap-item">
-                    <img src="https://images.unsplash.com/photo-1542204637-e67bc7d41e48?q=80&w=2075&auto=format&fit=crop" alt="Hotel Lobby" class="w-full h-auto transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                            <h3 class="text-white text-xl font-bold mb-1">Grand Hotel</h3>
-                            <p class="text-gray-300 text-sm mb-4">Interior Branding</p>
-                            <button class="px-5 py-2 bg-magenta text-white text-sm rounded-full font-semibold hover:bg-white hover:text-magenta transition">View Project</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group overflow-hidden rounded-lg break-inside-avoid gsap-item">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" alt="Corporate Office" class="w-full h-auto transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                            <h3 class="text-white text-xl font-bold mb-1">Tech Hub</h3>
-                            <p class="text-gray-300 text-sm mb-4">Wayfinding</p>
-                            <button class="px-5 py-2 bg-magenta text-white text-sm rounded-full font-semibold hover:bg-white hover:text-magenta transition">View Project</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group overflow-hidden rounded-lg break-inside-avoid gsap-item">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop" alt="Retail Store" class="w-full h-auto transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                            <h3 class="text-white text-xl font-bold mb-1">Luxury Retail</h3>
-                            <p class="text-gray-300 text-sm mb-4">Storefront 3D Letters</p>
-                            <button class="px-5 py-2 bg-magenta text-white text-sm rounded-full font-semibold hover:bg-white hover:text-magenta transition">View Project</button>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TM</div>
+                        <div class="author-info">
+                            <h4>Tendai Moyo</h4>
+                            <p>CEO, TechVision Solutions</p>
                         </div>
                     </div>
                 </div>
                 
-                 <div class="relative group overflow-hidden rounded-lg break-inside-avoid gsap-item">
-                    <img src="https://images.unsplash.com/photo-1563245372-f21720e32fd4?q=80&w=1974&auto=format&fit=crop" alt="Laser Cutting" class="w-full h-auto transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                            <h3 class="text-white text-xl font-bold mb-1">Metal Works</h3>
-                            <p class="text-gray-300 text-sm mb-4">Custom CNC</p>
-                            <button class="px-5 py-2 bg-magenta text-white text-sm rounded-full font-semibold hover:bg-white hover:text-magenta transition">View Project</button>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        Outstanding service! Our vehicle fleet looks incredible with the branding wraps. CETMAT delivered on time and within budget. Would definitely recommend!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chiwara</h4>
+                            <p>Marketing Director, Elite Properties</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        From design to installation, CETMAT's team was professional and creative. Our new storefront signage has significantly increased foot traffic!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JN</div>
+                        <div class="author-info">
+                            <h4>James Ndlovu</h4>
+                            <p>Owner, Luxe Boutique</p>
                         </div>
                     </div>
                 </div>
@@ -366,315 +1131,146 @@
         </div>
     </section>
 
-    <section class="py-24 bg-farmhouse">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-neutral p-6 rounded-lg shadow-sm border-t-4 border-magenta hover:-translate-y-2 transition duration-300 usp-card">
-                    <svg class="w-8 h-8 text-magenta mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <h3 class="font-bold text-charcoal text-lg mb-2">Years of Expertise</h3>
-                    <p class="text-sm text-gray-500">Deep industry knowledge and proven track record in Zimbabwe.</p>
-                </div>
-                <div class="bg-neutral p-6 rounded-lg shadow-sm border-t-4 border-magenta hover:-translate-y-2 transition duration-300 usp-card">
-                    <svg class="w-8 h-8 text-magenta mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    <h3 class="font-bold text-charcoal text-lg mb-2">Bespoke Elegance</h3>
-                    <p class="text-sm text-gray-500">Custom designs that match your exact brand guidelines.</p>
-                </div>
-                <div class="bg-neutral p-6 rounded-lg shadow-sm border-t-4 border-magenta hover:-translate-y-2 transition duration-300 usp-card">
-                    <svg class="w-8 h-8 text-magenta mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <h3 class="font-bold text-charcoal text-lg mb-2">On-Time Precision</h3>
-                    <p class="text-sm text-gray-500">Reliable delivery and installation schedules you can trust.</p>
-                </div>
-                <div class="bg-neutral p-6 rounded-lg shadow-sm border-t-4 border-magenta hover:-translate-y-2 transition duration-300 usp-card">
-                    <svg class="w-8 h-8 text-magenta mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    <h3 class="font-bold text-charcoal text-lg mb-2">Pro Installation</h3>
-                    <p class="text-sm text-gray-500">Expert riggers ensuring safety and perfect finish.</p>
-                </div>
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Let's bring your branding vision to life</p>
             </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-farmhouse border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="font-heading text-4xl font-bold text-charcoal text-center mb-12">Client Feedback</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-neutral p-8 rounded-lg shadow-sm testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
-                             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Ready to elevate your brand? Reach out to us today for a free consultation and quote.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>Harare, Zimbabwe</p>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-charcoal">Tafadzwa M.</h4>
-                            <p class="text-xs text-gray-500">Marketing Director, RetailCo</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@cetmatbranding.co.zw</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+263 77 123 4567</p>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic">"The team at CETMAT transformed our storefront. The 3D lettering is impeccable, and the LED lighting adds such a premium feel at night. Highly recommended."</p>
+                    
+                    <a href="https://wa.me/263771234567?text=Hi%20CETMAT%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20signage%20services" class="btn whatsapp-btn" target="_blank">
+                        💬 Get Quote on WhatsApp
+                    </a>
                 </div>
-
-                <div class="bg-neutral p-8 rounded-lg shadow-sm testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
-                             <img src="https://images.unsplash.com/photo-1573496359-0933d276c273?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-charcoal">Sarah Jenkins</h4>
-                            <p class="text-xs text-gray-500">CEO, TechStart ZW</p>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                    </div>
-                    <p class="text-gray-600 italic">"Professional from design to installation. They understood our brand guidelines perfectly and delivered a reception sign that wows every visitor."</p>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-32 bg-gradient-to-b from-farmhouse to-neutral">
-        <div class="max-w-4xl mx-auto px-6 text-center gsap-scale-up">
-            <h2 class="font-heading text-4xl md:text-5xl font-bold text-charcoal mb-6">Ready to Elevate Your Brand Image?</h2>
-            <p class="text-xl text-gray-600 mb-10">Let us help you elevate your brand image with our stunning signage solutions!</p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="mailto:info@cetmat.co.zw" class="btn-glow px-10 py-5 bg-magenta text-white text-lg font-bold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                    START YOUR PROJECT
-                </a>
-                <a href="tel:+263771234567" class="px-10 py-5 bg-white border border-gray-200 text-magenta text-lg font-bold rounded-lg shadow-sm hover:shadow-md hover:bg-neutral transition-all duration-300">
-                    GET A QUOTE
-                </a>
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CETMAT Branding</h3>
+                <p>Premium 3D signage, printing, and branding solutions in Zimbabwe. Elevating brands with elegance and sophistication.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">3D LED Signage</a></li>
+                    <li><a href="#services">Premium Printing</a></li>
+                    <li><a href="#services">Vehicle Wraps</a></li>
+                    <li><a href="#services">Bespoke Branding</a></li>
+                    <li><a href="#services">Corporate Installations</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                <p>Sunday: Closed</p>
             </div>
         </div>
-    </section>
-
-    <footer class="bg-charcoal pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1">
-                    <span class="font-heading font-bold text-2xl text-white">CETMAT<span class="text-magenta">.</span></span>
-                    <p class="text-neutral mt-4 text-sm opacity-80 leading-relaxed">
-                        Zimbabwe's premier 3D signage and branding fabrication studio. Crafting elegance since 2015.
-                    </p>
-                </div>
-
-                <div>
-                    <h5 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-neutral opacity-70 hover:opacity-100 hover:text-magenta transition text-sm">About Us</a></li>
-                        <li><a href="#services" class="text-neutral opacity-70 hover:opacity-100 hover:text-magenta transition text-sm">Services</a></li>
-                        <li><a href="#work" class="text-neutral opacity-70 hover:opacity-100 hover:text-magenta transition text-sm">Portfolio</a></li>
-                        <li><a href="#contact" class="text-neutral opacity-70 hover:opacity-100 hover:text-magenta transition text-sm">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contact</h5>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-neutral opacity-70 text-sm">
-                            <span class="mr-2 text-magenta">Phone:</span> +263 771 234 567
-                        </li>
-                        <li class="flex items-center text-neutral opacity-70 text-sm">
-                            <span class="mr-2 text-magenta">Email:</span> info@cetmat.co.zw
-                        </li>
-                        <li class="flex items-start text-neutral opacity-70 text-sm">
-                            <span class="mr-2 text-magenta">Address:</span> Graniteside, Harare, Zimbabwe
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Follow Us</h5>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-magenta transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-magenta transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-neutral opacity-50 text-xs">© 2026 CETMAT Branding. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-neutral opacity-50 hover:text-white text-xs">Privacy Policy</a>
-                    <a href="#" class="text-neutral opacity-50 hover:text-white text-xs">Terms of Service</a>
-                </div>
-            </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CETMAT Branding. All rights reserved. | Premium Signage Solutions Zimbabwe</p>
         </div>
     </footer>
 
+    <!-- ==================== MINIMAL JAVASCRIPT (MOBILE MENU ONLY) ==================== -->
     <script>
-        // Register GSAP ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-
-        // 1. Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        const navLogo = document.getElementById('nav-logo');
-        const logoDot = navLogo.querySelector('span');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.remove('bg-transparent', 'py-4');
-                navbar.classList.add('bg-farmhouse', 'shadow-md', 'py-2');
-                // Change text colors for light background
-                navLogo.classList.remove('text-white');
-                navLogo.classList.add('text-charcoal');
-            } else {
-                navbar.classList.add('bg-transparent', 'py-4');
-                navbar.classList.remove('bg-farmhouse', 'shadow-md', 'py-2');
-                // Revert text colors for dark video overlay
-                navLogo.classList.add('text-white');
-                navLogo.classList.remove('text-charcoal');
-            }
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-
-        // 2. Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
-
-        // 3. GSAP Animations
-
-        // Hero Parallax & Fade In
-        gsap.to('.hero-video', {
-            scrollTrigger: {
-                trigger: 'header',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            },
-            yPercent: 50,
-            ease: 'none'
-        });
-
-        const heroTl = gsap.timeline();
-        heroTl.to('.hero-text', {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power3.out',
-            delay: 0.5
-        })
-        .to('.hero-btn', {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: 'back.out(1.7)'
-        }, '-=0.5');
-
-        // General Fade Up Sections
-        gsap.utils.toArray('.gsap-fade-up').forEach(element => {
-            gsap.fromTo(element, 
-                { opacity: 0, y: 50 },
-                {
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 80%',
-                    },
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power2.out'
-                }
-            );
-        });
-
-        // Fade Right (About Text)
-        gsap.fromTo('.gsap-fade-right',
-            { opacity: 0, x: -50 },
-            {
-                scrollTrigger: {
-                    trigger: '#about',
-                    start: 'top 75%'
-                },
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                ease: 'power2.out'
-            }
-        );
-
-        // Fade Left (About Image)
-        gsap.fromTo('.gsap-fade-left',
-            { opacity: 0, x: 50 },
-            {
-                scrollTrigger: {
-                    trigger: '#about',
-                    start: 'top 75%'
-                },
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                ease: 'power2.out',
-                delay: 0.2
-            }
-        );
-
-        // Staggered Cards (Services)
-        gsap.from('.service-card', {
-            scrollTrigger: {
-                trigger: '#services',
-                start: 'top 75%'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out'
-        });
-
-        // Staggered Portfolio Items
-        gsap.from('.gsap-item', {
-            scrollTrigger: {
-                trigger: '#work',
-                start: 'top 75%'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: 'power2.out'
-        });
-
-        // USP Cards Stagger
-        gsap.from('.usp-card', {
-            scrollTrigger: {
-                trigger: '.usp-card', // triggers on first card
-                start: 'top 85%'
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: 'back.out(1.2)'
-        });
-
-        // Testimonials
-        gsap.from('.testimonial-card', {
-            scrollTrigger: {
-                trigger: '.testimonial-card',
-                start: 'top 80%'
-            },
-            x: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power2.out'
-        });
-
-        // Final CTA Scale Up
-        gsap.from('.gsap-scale-up', {
-            scrollTrigger: {
-                trigger: '#contact',
-                start: 'top 70%'
-            },
-            scale: 0.9,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out'
-        });
-
+        
+        // Smooth scroll behavior is handled by CSS
     </script>
 </body>
 </html>
