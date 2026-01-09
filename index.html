@@ -1,942 +1,308 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CETMAT Branding | Stunning 3D Signage & Branding Solutions</title>
-    <meta name="description"
-        content="CETMAT Branding crafts stunning 3D signage, printing, and branding solutions in Zimbabwe. Bespoke, elegant, and professional — elevate your brand with us.">
-    <meta name="keywords"
-        content="3D Signage Zimbabwe, Bespoke Branding Harare, Premium Printing Zimbabwe, Elegant Signage Solutions">
-
-    <!-- Fonts: 'Outfit' for premium modern headings, 'Inter' for clean body text -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* 
-         * 🎨 CETMAT PREMIUM CONVERSION THEME
-         * 60% Light Yellow (#FFF9C4)
-         * 20% Off-white (#F8F9FA)
-         * 10% Magenta (#EC198E)
-         * 10% Sky Blue (#31AEDD)
-         * Text: Deep Charcoal (#121212)
-         */
-        :root {
-            --bg-main: #FFF9C4;
-            --bg-neutral: #F8F9FA;
-            --bg-dark: #121212;
-
-            --primary: #EC198E;
-            --primary-hover: #d1137a;
-            --secondary: #31AEDD;
-            --secondary-hover: #269ccb;
-
-            --text-main: #121212;
-            --text-light: #F8F9FA;
-            --text-muted: #555;
-
-            --font-head: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-
-            --border-radius: 4px;
-            /* Slight rounded for modern but sharp feel */
-            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        /* RESET & BASE */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--text-main);
-            background-color: var(--bg-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: var(--font-head);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-main);
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            max-width: 65ch;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            font-weight: 600;
-            font-size: 1rem;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            letter-spacing: 0.02em;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(236, 25, 142, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(236, 25, 142, 0.4);
-        }
-
-        /* Ripple effect for Micro-interaction */
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(49, 174, 221, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--secondary-hover);
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(49, 174, 221, 0.4);
-        }
-
-        /* LAYOUT & SECTIONS */
-        .section {
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bg-light {
-            background-color: var(--bg-main);
-        }
-
-        .bg-neutral {
-            background-color: var(--bg-neutral);
-        }
-
-        .bg-dark {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .grid-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .grid-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .grid-4 {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* NAVIGATION */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            background: rgba(255, 249, 196, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            padding: 0.5rem 0;
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-head);
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--text-main);
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        @media (min-width: 900px) {
-            .nav-links {
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        /* HAMBURGER */
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            width: 30px;
-            z-index: 1100;
-        }
-
-        @media (min-width: 900px) {
-            .hamburger {
-                display: none;
-            }
-        }
-
-        .hamburger span {
-            width: 100%;
-            height: 3px;
-            background: var(--text-main);
-            transition: var(--transition);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            height: 100vh;
-            background: var(--bg-neutral);
-            padding: 5rem 2rem;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            transition: right 0.4s ease;
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .hero-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Mobile Fallback */
-        .hero-video-container {
-            background: url('https://images.unsplash.com/photo-1565545524278-65108608ed18?q=80&w=2072&auto=format&fit=crop') no-repeat center center/cover;
-        }
-
-        /* Show video only on larger screens if possible, or use poster */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.3), rgba(18, 18, 18, 0.8));
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 900px;
-            padding: 0 1rem;
-        }
-
-        .hero-title,
-        .hero-sub,
-        .hero-btns {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUpFade 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
-        }
-
-        .hero-sub {
-            animation-delay: 0.2s;
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .hero-btns {
-            animation-delay: 0.4s;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        @keyframes slideUpFade {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* SECTIONS - CARDS & GRIDS */
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title p {
-            margin: 0 auto;
-            color: var(--text-muted);
-        }
-
-        /* Services */
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 8px;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .service-link {
-            margin-top: auto;
-            padding-top: 1.5rem;
-            color: var(--secondary);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .service-link:hover {
-            color: var(--secondary-hover);
-            gap: 0.8rem;
-        }
-
-        /* Portfolio */
-        .portfolio-grid {
-            gap: 1.5rem;
-        }
-
-        .portfolio-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-        }
-
-        .portfolio-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 60%, transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover .portfolio-img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-overlay h4 {
-            color: white;
-            margin-bottom: 0.2rem;
-        }
-
-        .portfolio-overlay p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* USP */
-        .usp-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: var(--transition);
-        }
-
-        .usp-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .usp-icon {
-            background: white;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            color: var(--primary);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        /* Testimonials */
-        .testimonial-slider {
-            display: flex;
-            overflow-x: auto;
-            gap: 2rem;
-            padding: 2rem 1rem;
-            scroll-snap-type: x mandatory;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .testimonial-slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .testimonial-card {
-            background: white;
-            flex: 0 0 320px;
-            padding: 2.5rem;
-            border-radius: 12px;
-            scroll-snap-align: center;
-            box-shadow: var(--shadow-card);
-            border-left: 4px solid var(--primary);
-        }
-
-        /* Footer */
-        .footer {
-            padding-top: 5rem;
-            padding-bottom: 2rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col a {
-            color: #aaa;
-        }
-
-        .footer-col a:hover {
-            color: var(--secondary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* SCROLL ANIMATIONS */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CETMAT Branding — Stunning 3D Signage in Zimbabwe</title>
+  <meta name="description" content="CETMAT Branding crafts stunning 3D signage, printing, and branding solutions in Zimbabwe. Bespoke, elegant, and professional — elevate your brand with us." />
+  <meta name="keywords" content="3D Signage Zimbabwe, Bespoke Signage Harare, Premium Branding & Printing Zimbabwe, Elegant Signage Solutions" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="theme-color" content="#FFF9C4" />
 </head>
+<body class="site">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="CETMAT Branding home">
+        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC198E"></rect>
+        </svg>
+        <span class="brand-text">CETMAT Branding</span>
+      </a>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container nav-inner">
-            <a href="#" class="logo">CETMAT<span>.</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#who">Who We Are</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#why">Why Choose CETMAT</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+      <button class="cta primary" id="cta-desktop">Elevate Your Brand</button>
 
-            <nav class="nav-links">
-                <a href="#about">Who We Are</a>
-                <a href="#services">What We Do</a>
-                <a href="#portfolio">Our Work</a>
-                <a href="#contact" class="btn btn-primary">Get a Quote</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" class="nav-link-m">Who We Are</a>
-        <a href="#services" class="nav-link-m">What We Do</a>
-        <a href="#portfolio" class="nav-link-m">Our Work</a>
-        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-inner"></span>
+      </button>
     </div>
 
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="#who">Who We Are</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#why">Why Choose CETMAT</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-cta">
+          <button class="cta primary">Elevate Your Brand</button>
+          <button class="cta secondary">View Our Work</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-video-container">
-            <!-- Video falls back to BG image on mobile styles. On desktop we insert video -->
-            <video class="hero-video" autoplay muted loop playsinline
-                poster="https://images.unsplash.com/photo-1565545524278-65108608ed18?q=80&w=2072&auto=format&fit=crop">
-                <!-- Using a high-quality tech/manufacturing stock clip -->
-                <source src="https://videos.pexels.com/video-files/3195556/3195556-hd_1920_1080_25fps.mp4"
-                    type="video/mp4">
-            </video>
+    <section class="hero" id="hero" aria-label="Hero: Crafting Stunning 3D Signage">
+      <div class="hero-media">
+        <!-- Replace with real video files later -->
+        <video id="heroVideo" class="hero-video" playsinline muted loop preload="metadata" poster="./assets/hero-still.svg" aria-hidden="true">
+          <source src="./assets/hero-video.webm" type="video/webm">
+          <source src="./assets/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-copy" data-animate="fade-up" data-animate-delay="0">
+          <h1 class="hero-title">Crafting Stunning 3D Signage That Elevates Your Brand</h1>
+          <p class="hero-sub">We design, manufacture, and install bespoke signs that exceed expectations with elegance and sophistication.</p>
+
+          <div class="hero-actions">
+            <button class="cta primary ripple" id="cta-hero">Elevate Your Brand</button>
+            <a class="cta secondary" href="#work">View Our Work</a>
+          </div>
         </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Crafting Stunning 3D Signage That Elevates Your Brand</h1>
-            <p class="hero-sub">We design, manufacture, and install bespoke signs that exceed expectations with elegance
-                and sophistication.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">Elevate Your Brand</a>
-                <a href="#portfolio" class="btn btn-secondary">View Our Work</a>
-            </div>
-        </div>
+      </div>
     </section>
 
     <!-- WHO WE ARE -->
-    <section id="about" class="section bg-light">
-        <div class="container">
-            <div class="grid grid-2" style="align-items: center;">
-                <div class="fade-up">
-                    <h5
-                        style="color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                        Who We Are</h5>
-                    <h2>Exceeding Expectations with Elegance.</h2>
-                    <p>At CETMAT Branding, we specialize in crafting stunning 3D signage, printing, and branding
-                        solutions that add elegance and sophistication to any space. Our team of experts design,
-                        manufacture, and install bespoke signs that exceed our clients' expectations.</p>
-                    <p>With years of experience in the signage industry, we take pride in delivering top-notch products
-                        and services that meet our clients' unique needs and timelines.</p>
+    <section id="who" class="section who bg-light-yellow">
+      <div class="container">
+        <div class="section-inner">
+          <h2 class="section-title" data-animate="fade-up">Who We Are</h2>
+          <p class="lead" data-animate="fade-up" data-animate-delay="120">At CETMAT Branding, we specialize in crafting stunning 3D signage, printing, and branding solutions that add elegance and sophistication to any space. Our team of experts design, manufacture, and install bespoke signs that exceed our clients' expectations.</p>
 
-                    <div style="margin-top: 2rem; opacity: 0.6; display: flex; gap: 2rem; flex-wrap: wrap;">
-                        <strong>TRUSTED BY:</strong>
-                        <span>ECONET</span>
-                        <span>SIMBISA</span>
-                        <span>CBZ</span>
-                        <span>OLD MUTUAL</span>
-                    </div>
-                </div>
-                <div class="fade-up" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
-                        alt="Team at work" style="border-radius: 8px; box-shadow: var(--shadow-card);">
-                </div>
+          <div class="trusted" data-animate="slide-in-left" data-animate-delay="240" aria-label="Trusted by">
+            <div class="logo-grid">
+              <img alt="Client A" src="./assets/logo-placeholder-1.svg">
+              <img alt="Client B" src="./assets/logo-placeholder-2.svg">
+              <img alt="Client C" src="./assets/logo-placeholder-3.svg">
+              <img alt="Client D" src="./assets/logo-placeholder-1.svg">
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- WHAT WE DO -->
-    <section id="services" class="section bg-neutral">
-        <div class="container">
-            <div class="section-title fade-up">
-                <h2>What We Do</h2>
-                <p>Comprehensive branding solutions tailored to your needs.</p>
-            </div>
+    <!-- SERVICES -->
+    <section id="services" class="section services bg-offwhite">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-up">What We Do</h2>
+        <p class="section-sub" data-animate="fade-up" data-animate-delay="80">Signage & branding solutions that combine craftsmanship and premium materials.</p>
 
-            <div class="grid grid-3">
-                <!-- 3D Signage -->
-                <div class="service-card fade-up">
-                    <div class="service-icon">✦</div>
-                    <h3>3D Signage Design</h3>
-                    <p>Illuminated letters, halos, and bespoke fabrication.</p>
-                    <a href="#" class="service-link">Learn More <span>→</span></a>
-                </div>
-                <!-- Printing -->
-                <div class="service-card fade-up" style="animation-delay: 0.1s;">
-                    <div class="service-icon">🖨</div>
-                    <h3>Premium Printing</h3>
-                    <p>Large format, banners, and high-quality visuals.</p>
-                    <a href="#" class="service-link">Learn More <span>→</span></a>
-                </div>
-                <!-- Branding -->
-                <div class="service-card fade-up" style="animation-delay: 0.2s;">
-                    <div class="service-icon">🏗</div>
-                    <h3>Installation</h3>
-                    <p>Professional rigging and mounting for any location.</p>
-                    <a href="#" class="service-link">Learn More <span>→</span></a>
-                </div>
-                <!-- LED -->
-                <div class="service-card fade-up" style="animation-delay: 0.3s;">
-                    <div class="service-icon">💡</div>
-                    <h3>LED & Illuminated</h3>
-                    <p>Energy-efficient lighting that makes your brand shine.</p>
-                    <a href="#" class="service-link">Learn More <span>→</span></a>
-                </div>
-                <!-- Events -->
-                <div class="service-card fade-up" style="animation-delay: 0.4s;">
-                    <div class="service-icon">🎪</div>
-                    <h3>Exhibition Signage</h3>
-                    <p>Stand out at trade shows and corporate events.</p>
-                    <a href="#" class="service-link">Learn More <span>→</span></a>
-                </div>
-                <!-- Custom -->
-                <div class="service-card fade-up" style="animation-delay: 0.5s;">
-                    <div class="service-icon">✨</div>
-                    <h3>Space Transformation</h3>
-                    <p>Full interior branding and wayfinding systems.</p>
-                    <a href="#" class="service-link">Learn More <span>→</span></a>
-                </div>
-            </div>
+        <div class="services-grid" aria-label="Services list">
+          <article class="service-card" data-animate="fade-up" data-animate-delay="120">
+            <div class="icon">🔷</div>
+            <h3>3D Signage Design & Manufacturing</h3>
+            <p>Exceeding expectations with elegance.</p>
+            <a class="link" href="#services">Learn More</a>
+          </article>
+
+          <article class="service-card" data-animate="fade-up" data-animate-delay="180">
+            <div class="icon">🖨️</div>
+            <h3>Premium Printing Solutions</h3>
+            <p>High-fidelity prints on premium substrates.</p>
+            <a class="link" href="#services">Learn More</a>
+          </article>
+
+          <article class="service-card" data-animate="fade-up" data-animate-delay="240">
+            <div class="icon">⚙️</div>
+            <h3>Bespoke Branding & Installation</h3>
+            <p>Custom brand experiences with professional installs.</p>
+            <a class="link" href="#services">Learn More</a>
+          </article>
+
+          <article class="service-card" data-animate="fade-up" data-animate-delay="300">
+            <div class="icon">💡</div>
+            <h3>LED & Illuminated Signs</h3>
+            <p>Bright, efficient illumination that stands out.</p>
+            <a class="link" href="#services">Learn More</a>
+          </article>
+
+          <article class="service-card" data-animate="fade-up" data-animate-delay="360">
+            <div class="icon">🎪</div>
+            <h3>Exhibition & Event Signage</h3>
+            <p>Memorable stands and environment graphics.</p>
+            <a class="link" href="#services">Learn More</a>
+          </article>
+
+          <article class="service-card" data-animate="fade-up" data-animate-delay="420">
+            <div class="icon">🏢</div>
+            <h3>Custom Space Transformations</h3>
+            <p>Transforming interiors with bespoke signage systems.</p>
+            <a class="link" href="#services">Learn More</a>
+          </article>
         </div>
+      </div>
     </section>
 
     <!-- PORTFOLIO -->
-    <section id="portfolio" class="section bg-light">
-        <div class="container">
-            <div class="section-title fade-up">
-                <h2>Our Work</h2>
-                <p>Signage & branding that transforms spaces.</p>
-            </div>
+    <section id="work" class="section portfolio">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-up">Our Work</h2>
+        <p class="section-sub" data-animate="fade-up" data-animate-delay="80">Signage & branding that transforms spaces.</p>
 
-            <div class="grid grid-3 portfolio-grid">
-                <div class="portfolio-item fade-up">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
-                        class="portfolio-img" alt="Project 1">
-                    <div class="portfolio-overlay">
-                        <h4>Corporate HQ</h4>
-                        <p>Dimensional Metal Lettering</p>
-                        <span class="btn btn-primary"
-                            style="align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.8rem;">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item fade-up" style="animation-delay: 0.1s;">
-                    <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=2032&auto=format&fit=crop"
-                        class="portfolio-img" alt="Project 2">
-                    <div class="portfolio-overlay">
-                        <h4>Tech Hub</h4>
-                        <p>Interior Wayfinding</p>
-                        <span class="btn btn-primary"
-                            style="align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.8rem;">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item fade-up" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop"
-                        class="portfolio-img" alt="Project 3">
-                    <div class="portfolio-overlay">
-                        <h4>Fahrenheit Lounge</h4>
-                        <p>Neon & Acrylic</p>
-                        <span class="btn btn-primary"
-                            style="align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.8rem;">View Project</span>
-                    </div>
-                </div>
-                <!-- Add more rows as needed -->
-            </div>
+        <div class="masonry" aria-live="polite">
+          <figure class="work-item" data-animate="fade-up" data-animate-delay="120">
+            <img data-src="./assets/work-1.svg" alt="3D sign at a hotel lobby" class="lazy">
+            <figcaption>
+              <div>
+                <strong>Hotel Eden</strong>
+                <span>Lobby 3D Signage</span>
+              </div>
+              <button class="cta view-project">View Project</button>
+            </figcaption>
+          </figure>
 
-            <div class="text-center" style="margin-top: 3rem;">
-                <a href="#" class="btn btn-secondary">View Full Portfolio</a>
-            </div>
+          <figure class="work-item" data-animate="fade-up" data-animate-delay="180">
+            <img data-src="./assets/work-2.svg" alt="Illuminated retail sign" class="lazy">
+            <figcaption>
+              <div>
+                <strong>Studio Luxe</strong>
+                <span>Illuminated Retail Sign</span>
+              </div>
+              <button class="cta view-project">View Project</button>
+            </figcaption>
+          </figure>
+
+          <figure class="work-item" data-animate="fade-up" data-animate-delay="240">
+            <img data-src="./assets/work-3.svg" alt="Close-up of premium materials" class="lazy">
+            <figcaption>
+              <div>
+                <strong>Executive Office</strong>
+                <span>Custom Space Transformation</span>
+              </div>
+              <button class="cta view-project">View Project</button>
+            </figcaption>
+          </figure>
         </div>
+      </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="grid grid-2" style="align-items: center;">
-                <div class="fade-up">
-                    <h2>Why Choose CETMAT?</h2>
-                    <p>We combine creativity with technical precision.</p>
+    <!-- WHY CHOOSE -->
+    <section id="why" class="section why bg-light-yellow">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-up">Why Choose CETMAT</h2>
+        <div class="usp-grid">
+          <div class="usp" data-animate="slide-in" data-animate-delay="120">
+            <div class="usp-icon">🏆</div>
+            <h4>Years of Signage Expertise</h4>
+            <p>Deep industry knowledge and craftsmanship.</p>
+          </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;">
-                        <div class="usp-item slide-in">
-                            <div class="usp-icon">🏆</div>
-                            <div>
-                                <h3>Years of Expertise</h3>
-                                <p style="margin:0; font-size: 0.95rem;">Proven track record in Zimbabwean market.</p>
-                            </div>
-                        </div>
-                        <div class="usp-item slide-in" style="transition-delay: 0.1s;">
-                            <div class="usp-icon">💎</div>
-                            <div>
-                                <h3>Bespoke Elegance</h3>
-                                <p style="margin:0; font-size: 0.95rem;">Custom designs that radiate sophistication.</p>
-                            </div>
-                        </div>
-                        <div class="usp-item slide-in" style="transition-delay: 0.2s;">
-                            <div class="usp-icon">⚡</div>
-                            <div>
-                                <h3>Precision Delivery</h3>
-                                <p style="margin:0; font-size: 0.95rem;">On-time manufacturing and installation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Image or visual here -->
-                <div class="fade-up" style="position: relative;">
-                    <div
-                        style="background: var(--neutral); padding: 2rem; border-radius: 8px; border: 2px solid var(--primary);">
-                        <h3 style="color: var(--primary);">"The team exceeded our expectations!"</h3>
-                        <p>CETMAT Branding is the go-to for anyone looking for premium quality.</p>
-                        <strong>- Sarah, Marketing Director</strong>
-                    </div>
-                </div>
-            </div>
+          <div class="usp" data-animate="slide-in" data-animate-delay="180">
+            <div class="usp-icon">✨</div>
+            <h4>Bespoke Elegance & Sophistication</h4>
+            <p>Every design tailored to the client's identity.</p>
+          </div>
+
+          <div class="usp" data-animate="slide-in" data-animate-delay="240">
+            <div class="usp-icon">⏱️</div>
+            <h4>On-Time, Precision Delivery</h4>
+            <p>Project timelines respected with accurate delivery.</p>
+          </div>
+
+          <div class="usp" data-animate="slide-in" data-animate-delay="300">
+            <div class="usp-icon">🛠️</div>
+            <h4>Professional Installation & Support</h4>
+            <p>Certified installers and aftercare support.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section" style="background: linear-gradient(135deg, #FFF9C4 0%, #fff 100%);">
-        <div class="container text-center fade-up">
-            <h2>Ready to Elevate Your Brand Image?</h2>
-            <p>Let us help you elevate your brand image with our stunning signage solutions!</p>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
-                <a href="#contact" class="btn btn-primary">Elevate Your Brand</a>
-                <a href="#contact" class="btn btn-secondary">Get a Quote</a>
-            </div>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section testimonials bg-offwhite">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-up">What Our Clients Say</h2>
+
+        <div class="testimonials-carousel" data-animate="fade-up" data-animate-delay="120" aria-roledescription="carousel">
+          <div class="testimonial">
+            <img src="./assets/logo-placeholder-1.svg" alt="Client photo" class="client-photo">
+            <blockquote>"CETMAT delivered a stunning sign that transformed our reception area — impeccable quality and service."</blockquote>
+            <cite>— Tendai M., Hotel Eden</cite>
+          </div>
+
+          <div class="testimonial">
+            <img src="./assets/logo-placeholder-2.svg" alt="Client photo" class="client-photo">
+            <blockquote>"Professional from design to installation. The illuminated sign draws customers every day."</blockquote>
+            <cite>— Michael R., Studio Luxe</cite>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer bg-dark">
-        <div class="container">
-            <div class="grid grid-4" style="margin-bottom: 3rem;">
-                <div class="footer-col">
-                    <a href="#" class="logo"
-                        style="color:white; display:block; margin-bottom:1rem;">CETMAT<span>.</span></a>
-                    <p style="color:#aaa;">Crafting stunning 3D signage, printing, and branding solutions in Zimbabwe.
-                    </p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">Who We Are</a></li>
-                        <li><a href="#services">What We Do</a></li>
-                        <li><a href="#portfolio">Our Work</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>+263 77 123 4567</li>
-                        <li>sales@cetmat.co.zw</li>
-                        <li>Harare, Zimbabwe</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-btn">FB</a>
-                        <a href="#" class="social-btn">IG</a>
-                        <a href="#" class="social-btn">LN</a>
-                    </div>
-                </div>
-            </div>
-            <div
-                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; color: #666;">
-                <p style="margin:0;">&copy; 2024 CETMAT Branding. All rights reserved.</p>
-            </div>
+    <!-- FINAL CTA -->
+    <section id="contact" class="section final-cta bg-light-yellow">
+      <div class="container">
+        <div class="final-inner" data-animate="fade-up">
+          <h2>Ready to Elevate Your Brand Image?</h2>
+          <p>Let us help you elevate your brand image with our stunning signage solutions.</p>
+          <div class="hero-actions">
+            <button class="cta primary ripple">Elevate Your Brand</button>
+            <button class="cta secondary">Get a Quote</button>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        // MOBILE MENU
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC198E"></rect>
+        </svg>
+        <div>
+          <strong>CETMAT Branding</strong>
+          <div class="tagline">Crafting Stunning 3D Signage</div>
+        </div>
+      </div>
 
-        // STICKY HEADER
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
+      <div class="footer-links">
+        <nav aria-label="Footer">
+          <a href="#who">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
 
-        // SCROLL ANIMATIONS (Antigravity Motion)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+      <div class="footer-contact">
+        <div>Harare, Zimbabwe</div>
+        <div><a href="tel:+263700000000">+263 77 000 0000</a></div>
+        <div><a href="mailto:hello@cetmat.co.zw">hello@cetmat.co.zw</a></div>
+        <div class="social">
+          <a href="#" aria-label="WhatsApp">WA</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+    </div>
 
-                    // Trigger children animations if it's a USP section container
-                    const children = entry.target.querySelectorAll('.usp-item');
-                    children.forEach((child, index) => {
-                        setTimeout(() => child.classList.add('visible'), index * 100);
-                    });
-                }
-            });
-        }, { threshold: 0.1 });
+    <div class="container copyright">
+      <small style="color:#F8F9FA">© <span id="year"></span> CETMAT Branding. All rights reserved.</small>
+    </div>
+  </footer>
 
-        document.querySelectorAll('.fade-up, .usp-item').forEach(el => observer.observe(el));
-    </script>
+  <script src="./scripts.js" defer></script>
 </body>
-
 </html>
